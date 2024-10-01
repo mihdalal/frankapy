@@ -81,7 +81,7 @@ class FrankaConstants:
                         [0, 0, np.pi/2, 0],
                         [0.088, 0, np.pi/2, 0],
                         [0, 0.107, 0, 0],
-                        [0, 0.1034, 0, 0]])
+                        [0, 0.1993, 0, 0]])     # 0.1034 -> 0.1993 to match the real finger length
 
     N_REV_JOINTS = 7
 

@@ -649,10 +649,10 @@ class FrankaArm:
                               skill_desc=skill_desc)
 
 
-        if not self.is_joints_reachable(joints):
-            raise ValueError('Joints not reachable!')
-        if not ignore_virtual_walls and self.is_joints_in_collision_with_boxes(joints):
-            raise ValueError('Target joints in collision with virtual walls!')
+        # if not self.is_joints_reachable(joints):
+        #     raise ValueError('Joints not reachable!')
+        # if not ignore_virtual_walls and self.is_joints_in_collision_with_boxes(joints):
+        #     raise ValueError('Target joints in collision with virtual walls!')
 
         skill.add_initial_sensor_values(FC.EMPTY_SENSOR_VALUES)
 
@@ -1392,7 +1392,7 @@ class FrankaArm:
             skill_desc : :obj:`str` 
                 Skill description to use for logging on control-pc.
         """
-        self.goto_gripper(FC.GRIPPER_WIDTH_MAX, block=block, skill_desc=skill_desc)
+        self.goto_gripper(FC.GRIPPER_WIDTH_MAX, block=block, skill_desc=skill_desc, speed=0.1)
 
     def close_gripper(self, grasp=True, block=True, skill_desc='CloseGripper'):
         """
@@ -1410,7 +1410,7 @@ class FrankaArm:
         """
         self.goto_gripper(FC.GRIPPER_WIDTH_MIN, grasp=grasp,
                           force=FC.GRIPPER_MAX_FORCE if grasp else None,
-                          block=block, skill_desc=skill_desc)
+                          block=block, skill_desc=skill_desc, speed=0.1)
 
     def home_gripper(self, block=True, skill_desc='HomeGripper'):
         """
